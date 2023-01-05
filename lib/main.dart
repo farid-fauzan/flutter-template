@@ -1,4 +1,4 @@
-oimport 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:kimo/constants.dart';
 import 'package:kimo/screens/home/components/home_screen.dart';
 
