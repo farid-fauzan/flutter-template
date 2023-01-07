@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kimo/constants.dart';
-
+import 'package:kimo/screens/details/details_screen.dart';
 
 class RecomendPlants extends StatelessWidget {
   const RecomendPlants({
@@ -17,9 +17,12 @@ class RecomendPlants extends StatelessWidget {
           RecomendPlantCard(
             image: "assets/images/image_1.png",
             country: 'Russia',
-            press: () {},
             price: 440,
             title: 'Shamanta',
+            press: () {
+              Navigator.push(context,
+                  new MaterialPageRoute(builder: (context) => DetailsScreen()));
+            },
           ),
           RecomendPlantCard(
             image: "assets/images/image_2.png",
@@ -55,11 +58,12 @@ class RecomendPlantCard extends StatelessWidget {
   // final Size size;
   final String image, title, country;
   final int price;
-  final Function press;
+  final press;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    // var press2 = (){};
     return Container(
       margin: EdgeInsets.only(
           left: kDefaultPadding,
@@ -70,7 +74,7 @@ class RecomendPlantCard extends StatelessWidget {
         children: <Widget>[
           Image.asset(image),
           GestureDetector(
-            onTap: press.call(),
+            onTap: press,
             child: Container(
               padding: EdgeInsets.all(kDefaultPadding / 2),
               decoration: BoxDecoration(
